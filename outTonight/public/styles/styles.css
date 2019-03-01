@@ -3,7 +3,7 @@
 }
 
 
-#home {
+body {
   background-image: url("beachBackground.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
