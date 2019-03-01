@@ -1,3 +1,10 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+
+#home {
+  background-image: url("beachBackground.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
