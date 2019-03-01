@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     time: DataTypes.TIME,
     description: DataTypes.TEXT,
     location: DataTypes.TEXT,
-    money: DataTypes.TEXT
+    cost: DataTypes.TEXT
   });
   return Events;
 };
