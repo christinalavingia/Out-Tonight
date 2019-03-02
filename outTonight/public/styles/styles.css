@@ -22,6 +22,16 @@ h3 {
   font-family: 'Bad Script', cursive;
 }
 
+.btn {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: #cc0099;
+  color: white;
+}
+
 a:link {
   color: #000;
   text-decoration: none;
@@ -40,7 +50,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 
 #glow {
   font-size: 80px;
