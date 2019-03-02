@@ -41,6 +41,7 @@ body {
   background-attachment: fixed;
 }
 
+
 #glow {
   font-size: 80px;
   color: #fff;
@@ -57,4 +58,5 @@ body {
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #cc0099, 0 0 40px #cc0099, 0 0 50px #cc0099, 0 0 60px #cc0099, 0 0 70px #cc0099, 0 0 80px #cc0099;
   }
+
 }
