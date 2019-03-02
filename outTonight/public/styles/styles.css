@@ -14,7 +14,7 @@ h3 {
   font-size: 30px;
 }
 
-#createEvent, #searchEvent {
+#createEvent, #searchEvent, #submitNewEvent{
   width: 300px;
   height: 80px;
   margin: 20px;
