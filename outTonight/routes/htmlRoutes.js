@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function (app) {
   // Load index page
 
-  app.get("public/styles/styles.css", function (req, res) { res.send("public/styles/styles.css"); res.end(); });
+  app.get("styles/styles.css", function (req, res) { res.send("css"); res.end(); });
 
   app.get("/", function (req, res) {
     db.events.findAll({}).then(function (dbExamples) {
