@@ -1,7 +1,7 @@
 
 USE eventsdb;
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt) 
-    VALUES ("LA Clippers vs. OKC Thunder", "Sporting Event", "2019-03-08", "1530", "STAPLES Center", "Watch the Los Angeles Clippers Watch the Los Angeles Clippers play an exciting home game as they faceoff against the Oklahoma City Thunder.", "$20", now(), now());
+    VALUES ("LA Clippers vs. OKC Thunder", "Sports", "2019-03-08", "1530", "STAPLES Center", "Watch the Los Angeles Clippers Watch the Los Angeles Clippers play an exciting home game as they faceoff against the Oklahoma City Thunder.", "$20", now(), now());
    
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
     VALUES ("Musink Tattoo and Car Convention", "Convention", "2019-03-08", "1200", "OC Fair and Event Center", "This convention is an all-ages convention running from Friday, March 8 to Sunday, March 10.", "$79", now(), now());
@@ -28,7 +28,7 @@ INSERT INTO `events` (name, type, date, time, location, description, cost, creat
     VALUES ("At the Improv: Darrell Hammond, Jimmy Shin and more TBA!", "Comedy", "2019-03-10", "1830", "Hollywood Improv (The Main Room)", "Join these legends of SNL and more for a night of laughs, political and social commentary, and more.", "$15", now(), now());
     
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
-    VALUES ("Justin Timberlake", "Live Music", "2019-03-10", "1900", "STAPLES Center", "Timberlake is currently scheduled to perform 25 shows throughout North America, commencing with a performance in Toronto in March and wrapping up with a concert in Memphis, Tenn. on May 30.", "$120", now(), now());
+    VALUES ("Justin Timberlake", "Music", "2019-03-10", "1900", "STAPLES Center", "Timberlake is currently scheduled to perform 25 shows throughout North America, commencing with a performance in Toronto in March and wrapping up with a concert in Memphis, Tenn. on May 30.", "$120", now(), now());
     
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
     VALUES ("The Clemency of Titus", "Theater", "2019-03-10", "1400", "L.A. Opera", "Out of Mozart's many operas, this one stands out – a rare treat with all of the drama and music you'd expect, plus an added dose of treachery and togas.", "$60", now(), now());

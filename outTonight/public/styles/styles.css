@@ -14,12 +14,22 @@ h3 {
   font-size: 30px;
 }
 
-#createEvent, #searchEvent {
+#createEvent, #searchEvent, #submitNewEvent{
   width: 300px;
   height: 80px;
   margin: 20px;
   font-size: 20px;
   font-family: 'Bad Script', cursive;
+}
+
+.btn {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: #cc0099;
+  color: white;
 }
 
 a:link {
@@ -40,7 +50,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 
 #glow {
   font-size: 80px;
