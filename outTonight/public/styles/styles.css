@@ -8,3 +8,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.container {
+  margin-top: 13%;
+  text-align: center;
+}
+
+#createEvent {
+  
+}
+
+#searchEvent {
+  
+}
