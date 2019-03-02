@@ -1,5 +1,5 @@
-USE eventsdb;
 
+USE eventsdb;
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt) 
     VALUES ("LA Clippers vs. OKC Thunder", "Sporting Event", "2019-03-08", "1530", "STAPLES Center", "Watch the Los Angeles Clippers Watch the Los Angeles Clippers play an exciting home game as they faceoff against the Oklahoma City Thunder.", "$20", now(), now());
    
@@ -31,5 +31,5 @@ INSERT INTO `events` (name, type, date, time, location, description, cost, creat
     VALUES ("Justin Timberlake", "Live Music", "2019-03-10", "1900", "STAPLES Center", "Timberlake is currently scheduled to perform 25 shows throughout North America, commencing with a performance in Toronto in March and wrapping up with a concert in Memphis, Tenn. on May 30.", "$120", now(), now());
     
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
-    VALUES ("L.A. Opera - The Clemency of Titus", "Theater", "2019-03-10", "1400", "Out of Mozart's many operas, this one stands out – a rare treat with all of the drama and music you'd expect, plus an added dose of treachery and togas.", "$60", now(), now());
+    VALUES ("The Clemency of Titus", "Theater", "2019-03-10", "1400", "L.A. Opera", "Out of Mozart's many operas, this one stands out – a rare treat with all of the drama and music you'd expect, plus an added dose of treachery and togas.", "$60", now(), now());
     
