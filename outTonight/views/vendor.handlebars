@@ -1,33 +1,38 @@
-<div id="home">
+<div id="vendor">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>Create an Event Listing</h1>
-        {{!-- <h2></h2> --}}
+        <br>
+        <a href="/">
+          <h1 id="branding" class="glow">Out Tonight</h1>
+        </a>
+        <br>
+        <h3>Create an Event Listing</h3>
+        <br>
         <form class="clearfix mb-4" action="POST">
           <form>
             <div class="form-group">
               <label for="eventName">Event Name</label>
-              <input type="text" class="form-control" id="eventName" placeholder="Coachella Music Festival">
+              <input type="text" class="form-control" id="eventName" placeholder="">
             </div>
 
             <div class="form-group">
-              Date of Event:
+              Date of Event
               <div class="form-control">
-                <input type="date" name="bday">
+                <input type="date" name="date">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Event Time</label>
-              <input type="text" class="form-control" id="eventName" placeholder="0000-2400">
+              <label for="eventTime">Event Time</label>
+              <input type="text" class="form-control" id="eventTime" placeholder="Military Time: 0000-2400">
             </div>
 
             <div class="form-group">
               <label id="eventType">Event Type</label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option value="Music">Music</option>
-                <option value="Convention">Convention/Business/Conference</option>
+                <option value="Conference">Conference</option>
                 <option value="Theatre">Theatre</option>
                 <option value="Family">Family</option>
                 <option value="Sports">Sports</option>
@@ -38,33 +43,23 @@
 
             <div class="form-group">
               <label id="eventLocation">Event Location</label>
-              <input type="text" class="form-control" id="eventName" placeholder="Staples Center">
+              <input type="text" class="form-control" id="eventLocation" placeholder="">
             </div>
-
 
             <div class="form-group">
               <label id="eventDescription">Event Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="eventDescription" rows="3"></textarea>
             </div>
+
+            <div class="form-group">
+              <label for="eventCost">Event Cost</label>
+              <input type="text" class="form-control" id="eventCost" placeholder="Free-$250">
+            </div>
+            <br>
+            <button id="submitNewEvent" class="btn btn-dark">Submit</button>
           </form>
-
-          <div class="form-group">
-            <label for="eventCost">Event Cost</label>
-            <input type="text" class="form-control" id="eventName" placeholder="$0-$250">
-          </div>
-
-          <button id="submitNewEvent" class="btn btn-dark">Submit</button>
-        </form>
-        <br>
-        <h1 id="events">Events:</h1>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+          <br>
+          </ul>
       </div>
     </div>
   </div>

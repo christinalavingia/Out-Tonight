@@ -1,43 +1,50 @@
-<div id="home">
+<div id="search">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1 class="branding">Out Tonight</h1>
-        <h2>Search for Events</h2>
-        <form class="clearfix mb-4" action="POST">
-
-          <div class="form-group">
-
-            <form>
-              Date of Event:
-              <input type="date" name="eventDate">
-            </form>
-          </div>
-
-          <div class="form-group">
-            <form>
-              <Label>ZIP Code</Label><input type="text" pattern="[0-9]{5}" title="Five digit zip code" />
-            </form>
-          </div>
-          <div class = "form-group">
-          
+        <br>
+        <a href="/">
+          <h1 id="branding" class="glow">Out Tonight</h1>
+        </a>
+        <br>
+        <h3>Search for Events</h3>
+        <br>
+        <form class="clearfix mb-4" action="GET">
           <form>
-          <button id="submit" class="btn btn-primary float-center">Submit</button>
+
+            <div class="form-group">
+              <div class="row">Date of Event</div>
+              <div class="row form-control">
+                <input type="date" name="date">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="userZip">ZIP Code</label>
+              <input type="text" class="form-control" id="userZip" placeholder="">
+            </div>
+
+            <div class="custom-control custom-checkbox" div id="free">
+              <input type="checkbox" class="custom-control-input" id="freeOnly">
+              <label class="custom-control-label" for="freeOnly">Only Show Me Free Events</label>
+            </div>
+            <br>
+            <button id="userSearch" class="btn btn-dark">Search</button>
+          </form>
           <br>
-        </form>
-        </div>
-        <h3>Events</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
       </div>
+      {{!-- <h3>Events</h3> --}}
+      <ul id="example-list" class="list-group">
+        {{#each examples}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="example/{{this.id}}">{{this.text}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
+</div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
