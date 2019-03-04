@@ -14,7 +14,33 @@ h3 {
   font-size: 30px;
 }
 
-#createEvent, #searchEvent, #submitNewEvent{
+#free {
+  margin-left: 50px;
+}
+
+#branding {
+  font-size: 30px;
+  text-align: left;
+}
+
+.form-group {
+  margin-left: 60px;
+}
+
+.form-control {
+  width: 400px;
+  margin: auto;
+  padding: 5px;
+  margin-top: -30px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.btn {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
   width: 300px;
   height: 80px;
   margin: 20px;
@@ -22,9 +48,9 @@ h3 {
   font-family: 'Bad Script', cursive;
 }
 
-.btn {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+#userSearch, #submitNewEvent {
+  display: block;
+  margin: auto;
 }
 
 .btn:hover {
@@ -51,7 +77,7 @@ body {
   background-attachment: fixed;
 }
 
-#glow {
+.glow {
   font-size: 80px;
   color: #fff;
   text-align: center;
@@ -68,4 +94,86 @@ body {
     text-shadow: 0 0 20px #fff, 0 0 30px #cc0099, 0 0 40px #cc0099, 0 0 50px #cc0099, 0 0 60px #cc0099, 0 0 70px #cc0099, 0 0 80px #cc0099;
   }
 
+}
+
+@media(max-width:1200px){
+
+.form-control {
+  width: 500px;
+  margin: auto;
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+
+}
+
+@media(max-width:992px){
+
+.form-control {
+  width: 500px;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#branding {
+  text-align: center;
+}  
+
+.form-group {
+  margin: auto;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+#free {
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+}
+
+
+@media(max-width:767px){
+  
+#branding {
+  text-align: center;
+}
+
+.form-control {
+  width: 300px;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+#homeTitle {
+  font-size: 50px;
+}
+
+#free {
+  margin-left: 0px;
+}
+ 
 }
