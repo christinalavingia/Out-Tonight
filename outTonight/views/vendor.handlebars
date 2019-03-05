@@ -19,18 +19,19 @@
             <div class="form-group">
               Date of Event
               <div class="form-control">
-                <input type="date" name="date">
+                <input type="date" name="date" id="eventDate">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="eventTime">Event Time</label>
-              <input type="text" class="form-control" id="eventTime" placeholder="Military Time: 0000-2400">
+              <label for="timeOfEvent">Event Time</label>
+              <input type="time" class="form-control" id="eventTime" placeholder="Military Time: 0000-2400">
             </div>
 
             <div class="form-group">
-              <label id="eventType">Event Type</label>
+              <label for="eventType">Event Type</label>
               <select class="form-control" id="eventType">
+                <option selected disabled hidden>Select an Option</option>
                 <option value="Music">Music</option>
                 <option value="Conference">Conference</option>
                 <option value="Theatre">Theatre</option>
@@ -42,12 +43,12 @@
             </div>
 
             <div class="form-group">
-              <label id="eventLocation">Event Location</label>
+              <label for="eventLocation">Event Location</label>
               <input type="text" class="form-control" id="eventLocation" placeholder="">
             </div>
 
             <div class="form-group">
-              <label id="eventDescription">Event Description</label>
+              <label for="eventDescription">Event Description</label>
               <textarea class="form-control" id="eventDescription" rows="3"></textarea>
             </div>
 

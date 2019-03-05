@@ -1,10 +1,4 @@
-// module.exports = function(sequelize, DataTypes) {
-//   var Example = sequelize.define("Example", {
-//     text: DataTypes.STRING,
-//     description: DataTypes.TEXT
-//   });
-//   return Example;
-// };
+//Create the table for sequelize
 
 module.exports = function(sequelize, DataTypes) {
   var Events = sequelize.define("events", {
