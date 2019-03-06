@@ -1,10 +1,34 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Get all examples
+  // Get all events
   app.get("/api/search", function (req, res) {
-    db.Events.findAll({}).then(function (dbExamples) {
-      res.json(dbExamples);
+    db.events.findAll({}).then(function (results) {
+      res.json(results);
+    });
+  });
+
+  // specific event on date
+  app.get("/api/search/:date", function (req, res) {
+    db.events.findAll({
+      where: {
+        date: req.params.date
+      }
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+  // specific event by price (free or not)
+  app.get("/api/search/:free", function (req, res) {
+    db.events.findAll({
+      where: {
+        cost: {
+          $lte: 0
+        }
+      },
+    }).then(function (results) {
+      res.json(results);
     });
   });
 

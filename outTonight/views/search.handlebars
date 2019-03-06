@@ -4,7 +4,7 @@
       <div class="col-8 offset-2">
         <br>
         <a href="/">
-          <h1 id="branding" class="glow">Out Tonight</h1>
+          <h1 id="branding" class="glow">Out Tonight <span id="soCal">- So Cal</span></h1>
         </a>
         <br>
         <h3>Search for Events</h3>
@@ -15,16 +15,16 @@
             <div class="form-group">
               <div class="row">Date of Event</div>
               <div class="row form-control">
-                <input type="date" name="date">
+                <input type="date" name="date" id="searchDate">
               </div>
             </div>
 
-            <div class="form-group">
+            {{!-- <div class="form-group">
               <label for="userZip">ZIP Code</label>
               <input type="text" class="form-control" id="userZip" placeholder="">
-            </div>
+            </div> --}}
 
-            <div class="custom-control custom-checkbox" div id="free">
+            <div class="custom-control custom-checkbox" id="free">
               <input type="checkbox" class="custom-control-input" id="freeOnly">
               <label class="custom-control-label" for="freeOnly">Only Show Me Free Events</label>
             </div>
@@ -32,19 +32,23 @@
             <button id="userSearch" class="btn btn-dark">Search</button>
           </form>
           <br>
+        <div class="showEvents">
+        
+        </div>
       </div>
       {{!-- <h3>Events</h3> --}}
-      <ul id="example-list" class="list-group">
+      {{!-- <ul id="example-list" class="list-group">
         {{#each examples}}
         <li data-id="{{this.id}}" class="list-group-item">
           <a href="example/{{this.id}}">{{this.text}}</a>
           <button class="btn btn-danger float-right delete">ｘ</button>
         </li>
         {{/each}}
-      </ul>
+      </ul> --}}
+      
+      
     </div>
   </div>
-</div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
