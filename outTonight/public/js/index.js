@@ -4,6 +4,7 @@
 var submitVendor = $("#submitNewEvent");
 // var $exampleList = $("#example-list");
 var searchBtn = $("#userSearch");
+var showAll = $("#showAll");
 
 var eventName = $("#eventName");
 var eventType = $("#eventType");
@@ -19,18 +20,17 @@ var checkBox = $("#freeOnly");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveEvent: function (event) {
-    return $.ajax({
+    return $.ajax("/api/create", {
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/create",
       data: JSON.stringify(event)
     });
   },
   getEvent: function () {
     return $.ajax({
-      url: "api/search",
+      url: "/api/search",
       type: "GET"
     });
   }
@@ -66,7 +66,36 @@ var API = {
 // };
 // seach functions
 
+var showEvents = function (event) {
+  event.preventDefault();
+  console.log("clicked");
 
+  $.get("/api/search", function (data) {
+    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+      // Create a parent div to hold book data
+      var newDiv = $("<div>");
+      // Add a class to this div: 'well'
+      // newDiv.addClass("scroll");***********************
+      // Add an id to the well to mark which well it is
+      newDiv.attr("id", "event-" + i);
+      // Append the well to the well section
+      $(".showEvents").append(newDiv);
+
+      // Now  we add our book data to the well we just placed on the page
+      $("<br><h3>Events</h3>");
+      // $("#event-" + i).append("<p>Event Number:" + (i + 1) + "</p>");
+      $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
+      $("#event-" + i).append("<p>Date: " + data[i].date + "</p>");
+      $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
+      $("#event-" + i).append("<p>Type: " + data[i].type + "</p>");
+      $("#event-" + i).append("<p>Location: " + data[i].location + "</p>");
+      $("#event-" + i).append("<p>Description: " + data[i].description + "</p>");
+      $("#event-" + i).append("<p>Cost: " + data[i].cost + "</p>");
+      
+    }
+  });
+};
 
 
 var searchEvents = function (event) {
@@ -74,21 +103,21 @@ var searchEvents = function (event) {
   API.getEvent().then(function (data) {
     if ((captureDate.val() === data[i].date) && ($("#freeOnly").prop("checked"))) {
       // Make a get request to our api route that will return every book
-      $.get("/api/all", function (data) {
+      $.get("/api/search", function (data) {
         // For each book that our server sends us back
         for (var i = 0; i < data.length; i++) {
           // Create a parent div to hold book data
           var newDiv = $("<div>");
           // Add a class to this div: 'well'
-          newDiv.addClass("scroll");
+          // newDiv.addClass("scroll");
           // Add an id to the well to mark which well it is
           newDiv.attr("id", "event-" + i);
           // Append the well to the well section
-          $("#showEvents").append(newDiv);
+          $(".showEvents").append(newDiv);
 
           // Now  we add our book data to the well we just placed on the page
           $("<h3>Events</h3>");
-          $("#event-" + i).append("<p>" + (i + 1) + ". " + data[i].id + "</p>");
+          // $("#event-" + i).append("<p>" + (i + 1) + "</p>");
           $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
           $("#event-" + i).append("<p>Date: " + data[i].date + "</p>");
           $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
@@ -169,6 +198,7 @@ var handleFormSubmit = function (event) {
 // Add event listeners to the submit and delete buttons
 submitVendor.on("click", handleFormSubmit);
 searchBtn.on("click", searchEvents);
+showAll.on("click", showEvents);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 

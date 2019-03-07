@@ -3,10 +3,13 @@ var db = require("../models");
 module.exports = function (app) {
   // Get all events
   app.get("/api/search", function (req, res) {
-    db.events.findAll({}).then(function (results) {
+    db.events.findAll({
+      //descending order
+    }).then(function (results) {
       res.json(results);
     });
   });
+
 
   // specific event on date
   app.get("/api/search/:date", function (req, res) {
@@ -23,6 +26,20 @@ module.exports = function (app) {
   app.get("/api/search/:free", function (req, res) {
     db.events.findAll({
       where: {
+        cost: {
+          $lte: 0
+        }
+      },
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+  // specific event by price (free or not) AND date ????????????
+  app.get("/api/search/:freeDate", function (req, res) {
+    db.events.findAll({
+      where: {
+        date: req.params.date,
         cost: {
           $lte: 0
         }
