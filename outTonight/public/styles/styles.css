@@ -54,7 +54,7 @@ h2 {
   font-family: 'Bad Script', cursive;
 }
 
-#userSearch, #submitNewEvent {
+#userSearch, #submitNewEvent, #showAll {
   display: block;
   margin: auto;
 }
