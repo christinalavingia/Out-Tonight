@@ -10,7 +10,6 @@ module.exports = function (app) {
     });
   });
 
-
   // specific event on date
   app.get("/api/search/:date", function (req, res) {
     db.events.findAll({
