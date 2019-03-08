@@ -34,7 +34,7 @@ var API = {
 var showEvents = function (event) {
   event.preventDefault();
   console.log("clicked");
-
+    $(".showEvents").empty();
   $.get("/api/search", function (data) {
     console.log(data);
     for (var i = 0; i < data.length; i++) {
@@ -67,7 +67,7 @@ var showEvents = function (event) {
 // ((captureDate.val() === data[i].date) && ($("#freeOnly").prop("checked")))
 var searchEvents = function (event) {
   event.preventDefault();
-  
+  $(".showEvents").empty();
   $.get("/api/search/" + captureDate.val() + "T00:00:00.000Z", function (data) {
     console.log(data)
     console.log(captureDate.val());
