@@ -55,9 +55,9 @@ var showEvents = function (event) {
       $("#event-" + i).append("<p>" + data[i].name + "</p>");
       $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
       $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
-      $("#event-" + i).append("<p><b>Description:</b> " + data[i].description + "</p>");
-      $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");
-
+      $("#event-" + i).append("<p>" + data[i].description + "</p>");
+      $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");empty
+      
     }
   });
 };
@@ -89,10 +89,11 @@ var searchEvents = function (event) {
 
         $("#event-" + i).append("<p>" + data[i].name + "</p>");
         $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
-        $("#event-" + i).append("<p>Where: " + data[i].location + "</p>");
-        $("#event-" + i).append("<p>Description: " + data[i].description + "</p>");
-        $("#event-" + i).append("<p>Cost: " + data[i].cost + "</p>");
+        $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
+        $("#event-" + i).append("<p>" + data[i].description + "</p>");
+        $("#event-" + i).append("<p>Cost: $" + data[i].cost + "</p>");
       }
+     
     });
   }
 };
