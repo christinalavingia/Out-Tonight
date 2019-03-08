@@ -33,45 +33,101 @@ var API = {
 
 var showEvents = function (event) {
   event.preventDefault();
-
   $(".showEvents").empty();
   $(".showEvents").append("<br><h3>Events</h3><br>");
-  $.get("/api/search", function (data) {
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      var newDiv = $("<div>");
-      // newDiv.addClass("scroll");
-      newDiv.addClass("results");
-      newDiv.attr("id", "event-" + i);
-      $(".showEvents").append(newDiv);
+  var checked = $("#freeOnly").is(":checked");
+  console.log(checked);
 
-      var uglyDate = data[i].date;
-      var prettyDate = uglyDate.slice(0, 10);
+  if (checked) {
+    console.log("i am working")
+    $.get("/api/search/free", function (data) {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        var newDiv = $("<div>");
+        // newDiv.addClass("scroll");
+        newDiv.addClass("results");
+        newDiv.attr("id", "event-" + i);
+        $(".showEvents").append(newDiv);
 
-      var uglyTime = data[i].time;
-      var prettyTime = uglyTime.slice(3);
+        var uglyDate = data[i].date;
+        var prettyDate = uglyDate.slice(0, 10);
 
-      $(".showEvents").append(newDiv);
-      $("#event-" + i).append("<p>" + data[i].name + "</p>");
-      $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
-      $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
-      $("#event-" + i).append("<p>" + data[i].description + "</p>");
-      $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");empty
-      
-    }
-  });
+        var uglyTime = data[i].time;
+        var prettyTime = uglyTime.slice(3);
+
+        $(".showEvents").append(newDiv);
+        $("#event-" + i).append("<p>" + data[i].name + "</p>");
+        $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
+        $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
+        $("#event-" + i).append("<p>" + data[i].description + "</p>");
+        $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");
+
+      }
+    })
+
+  } else {
+    $.get("/api/search", function (data) {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        var newDiv = $("<div>");
+        // newDiv.addClass("scroll");
+        newDiv.addClass("results");
+        newDiv.attr("id", "event-" + i);
+        $(".showEvents").append(newDiv);
+
+        var uglyDate = data[i].date;
+        var prettyDate = uglyDate.slice(0, 10);
+
+        var uglyTime = data[i].time;
+        var prettyTime = uglyTime.slice(3);
+
+        $(".showEvents").append(newDiv);
+        $("#event-" + i).append("<p>" + data[i].name + "</p>");
+        $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
+        $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
+        $("#event-" + i).append("<p>" + data[i].description + "</p>");
+        $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");
+
+      }
+    });
+  }
 };
 
 // ((captureDate.val() === data[i].date) && ($("#freeOnly").prop("checked")))
 var searchEvents = function (event) {
   event.preventDefault();
-
   $(".showEvents").empty();
+  var checked = $("#freeOnly").is(":checked");
+  console.log(checked);
+
   if ($("#searchDate").val() == "") {
     alert("Provide a select date or click the Show All button to see all events.")
+  } else if ((checked) && (captureDate.val() !== "")) {
+    $.get("/api/search/free/" + captureDate.val() + "T00:00:00.000Z", function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var newDiv = $("<div>");
+        newDiv.addClass("results");
+        newDiv.attr("id", "event-" + i);
+        $(".showEvents").append(newDiv);
+
+        var uglyDate = data[i].date;
+        var prettyDate = uglyDate.slice(0, 10);
+
+        var uglyTime = data[i].time;
+        var prettyTime = uglyTime.slice(3);
+
+        $("#event-" + i).append("<p>" + data[i].name + "</p>");
+        $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
+        $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
+        $("#event-" + i).append("<p>" + data[i].description + "</p>");
+        $("#event-" + i).append("<p>Cost: $" + data[i].cost + "</p>");
+      }
+    })
+  } else if ((checked) && (captureDate.val() + "T00:00:00.000Z") !== data[i].date) {
+    alert("Sorry, there are no free events on this day.");
   } else {
     $(".showEvents").append("<br><h3>Events</h3><br>");
-    $.get("/api/search/" + captureDate.val() + "T00:00:00.000Z", function (data) {
+    $.get("/api/search/date/" + captureDate.val() + "T00:00:00.000Z", function (data) {
       console.log(data)
       console.log(captureDate.val());
 
@@ -93,7 +149,7 @@ var searchEvents = function (event) {
         $("#event-" + i).append("<p>" + data[i].description + "</p>");
         $("#event-" + i).append("<p>Cost: $" + data[i].cost + "</p>");
       }
-     
+
     });
   }
 };

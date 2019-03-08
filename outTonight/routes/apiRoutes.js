@@ -3,6 +3,7 @@ var db = require("../models");
 module.exports = function (app) {
   // Get all events
   app.get("/api/search", function (req, res) {
+    console.log("api/search/ was hit")
     db.events.findAll({
       //descending order
     }).then(function (results) {
@@ -10,19 +11,9 @@ module.exports = function (app) {
     });
   });
 
-  // specific event on date
-  app.get("/api/search/:date", function (req, res) {
-    db.events.findAll({
-      where: {
-        date: req.params.date
-      }
-    }).then(function (results) {
-      res.json(results);
-    });
-  });
-
   // specific event by price (free or not)
-  app.get("/api/search/:free", function (req, res) {
+  app.get("/api/search/free", function (req, res) {
+    console.log("api/search/free was hit")
     db.events.findAll({
       where: {
         cost: {
@@ -30,12 +21,26 @@ module.exports = function (app) {
         }
       },
     }).then(function (results) {
+      console.log(results);
       res.json(results);
     });
   });
 
+    // specific event on date
+    app.get("/api/search/date/:date", function (req, res) {
+      console.log("api/search/date/:date was hit")
+      db.events.findAll({
+        where: {
+          date: req.params.date
+        }
+      }).then(function (results) {
+        res.json(results);
+      });
+    });  
+
   // specific event by price (free or not) AND date ????????????
-  app.get("/api/search/:freeDate", function (req, res) {
+  app.get("/api/search/free/:date", function (req, res) {
+    console.log("api/search/free/:date was hit")
     db.events.findAll({
       where: {
         date: req.params.date,
