@@ -1,5 +1,6 @@
 
 USE eventsdb;
+
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt) 
     VALUES ("LA Clippers vs. OKC Thunder", "Sports", "2019-03-08", "1530", "STAPLES Center", "Watch the Los Angeles Clippers Watch the Los Angeles Clippers play an exciting home game as they faceoff against the Oklahoma City Thunder.", "20", now(), now());
    
