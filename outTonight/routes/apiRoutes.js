@@ -40,7 +40,7 @@ module.exports = function (app) {
 
   // specific event by price (free or not) AND date ????????????
   app.get("/api/search/free/:date", function (req, res) {
-    console.log("api/search/free/:date was hit")
+    console.log("api/search/results/:date was hit")
     db.events.findAll({
       where: {
         date: req.params.date,
