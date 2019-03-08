@@ -19,7 +19,7 @@ INSERT INTO `events` (name, type, date, time, location, description, cost, creat
     VALUES ("Kite Festival", "Festival", "2019-03-10", "1100", "Redondo Beach", "All-ages Festival of the Kite features a gigantic 25-foot kite, a dance performance, live classic rock, and prizes for the best handmade kite, best ground display, highest-flying kite, youngest flyer, and youngest at heart at Redondo Beach Pier.", "0", now(), now());
 
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
-    VALUES ("Craig Robinson", "Comedy", "2019-03-10", "1900", "Brea Improv", "Schedule some laughs with actor and comedian of The Office fame, Craig Robinson!", "$30", now(), now());
+    VALUES ("Craig Robinson", "Comedy", "2019-03-10", "1900", "Brea Improv", "Schedule some laughs with actor and comedian of The Office fame, Craig Robinson!", "30", now(), now());
             
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
     VALUES ("The Ralph Report with Ralph Garman", "Comedy", "2019-03-09", "2230", "Hollywood Improv (The Main Room)", "Join The Ralph Report podcast crew: Ralph Garman, Vice Host Eddie Pence, UK Correspondant Steve Ashton and Kari Garman for a live recording of THE RALPH REPORT.", "20", now(), now());

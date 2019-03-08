@@ -33,29 +33,31 @@ var API = {
 
 var showEvents = function (event) {
   event.preventDefault();
-  
+
   $(".showEvents").empty();
-  
+  $(".showEvents").append("<br><h3>Events</h3><br>");
   $.get("/api/search", function (data) {
     console.log(data);
     for (var i = 0; i < data.length; i++) {
       var newDiv = $("<div>");
-      newDiv.addClass("scroll");
+      // newDiv.addClass("scroll");
+      newDiv.addClass("results");
       newDiv.attr("id", "event-" + i);
       $(".showEvents").append(newDiv);
 
-      var formattedDate = moment(data[i].date).format("MM-DD-YYYY");
+      var uglyDate = data[i].date;
+      var prettyDate = uglyDate.slice(0, 10);
 
-      $(".showEvents").append("<br><h3>Events</h3><br>");
+      var uglyTime = data[i].time;
+      var prettyTime = uglyTime.slice(3);
+
       $(".showEvents").append(newDiv);
-      $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
-      $("#event-" + i).append("<p>Date: " + formattedDate + "</p>");
-      $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
-      $("#event-" + i).append("<p>Type: " + data[i].type + "</p>");
-      $("#event-" + i).append("<p>Location: " + data[i].location + "</p>");
-      $("#event-" + i).append("<p>Description: " + data[i].description + "</p>");
-      $("#event-" + i).append("<p>Cost: " + data[i].cost + "</p>");
-      
+      $("#event-" + i).append("<p>" + data[i].name + "</p>");
+      $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
+      $("#event-" + i).append("<p><b>Where:</b> " + data[i].location + "</p>");
+      $("#event-" + i).append("<p><b>Description:</b> " + data[i].description + "</p>");
+      $("#event-" + i).append("<p><b>Cost:</b> $" + data[i].cost + "</p>");
+
     }
   });
 };
@@ -63,27 +65,36 @@ var showEvents = function (event) {
 // ((captureDate.val() === data[i].date) && ($("#freeOnly").prop("checked")))
 var searchEvents = function (event) {
   event.preventDefault();
-  
+
   $(".showEvents").empty();
-  
-  $.get("/api/search/" + captureDate.val() + "T00:00:00.000Z", function (data) {
-    console.log(data)
-    console.log(captureDate.val());
-    
-        for (var i = 0; i < data.length; i++) {
-          var newDiv = $("<div>");
-       
-          newDiv.attr("id", "event-" + i);
-          $(".showEvents").append("<br><h3>Events</h3><br>");
-          $(".showEvents").append(newDiv);
-          $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
-          $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
-          $("#event-" + i).append("<p>Type: " + data[i].type + "</p>");
-          $("#event-" + i).append("<p>Location: " + data[i].location + "</p>");
-          $("#event-" + i).append("<p>Description: " + data[i].description + "</p>");
-          $("#event-" + i).append("<p>Cost: " + data[i].cost + "</p>");
-        } 
-  });
+  if ($("#searchDate").val() == "") {
+    alert("Provide a select date or click the Show All button to see all events.")
+  } else {
+    $(".showEvents").append("<br><h3>Events</h3><br>");
+    $.get("/api/search/" + captureDate.val() + "T00:00:00.000Z", function (data) {
+      console.log(data)
+      console.log(captureDate.val());
+
+      for (var i = 0; i < data.length; i++) {
+        var newDiv = $("<div>");
+        newDiv.addClass("results");
+        newDiv.attr("id", "event-" + i);
+        $(".showEvents").append(newDiv);
+
+        var uglyDate = data[i].date;
+        var prettyDate = uglyDate.slice(0, 10);
+
+        var uglyTime = data[i].time;
+        var prettyTime = uglyTime.slice(3);
+
+        $("#event-" + i).append("<p>" + data[i].name + "</p>");
+        $("#event-" + i).append("<p><b>When:</b> " + prettyDate + " at " + prettyTime + "</p>");
+        $("#event-" + i).append("<p>Where: " + data[i].location + "</p>");
+        $("#event-" + i).append("<p>Description: " + data[i].description + "</p>");
+        $("#event-" + i).append("<p>Cost: " + data[i].cost + "</p>");
+      }
+    });
+  }
 };
 
 var handleFormSubmit = function (event) {
@@ -131,6 +142,3 @@ var handleFormSubmit = function (event) {
 submitVendor.on("click", handleFormSubmit);
 searchBtn.on("click", searchEvents);
 showAll.on("click", showEvents);
-
-
-
