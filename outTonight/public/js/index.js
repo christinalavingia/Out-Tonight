@@ -39,20 +39,14 @@ var showEvents = function (event) {
   $.get("/api/search", function (data) {
     console.log(data);
     for (var i = 0; i < data.length; i++) {
-      // Create a parent div to hold book data
       var newDiv = $("<div>");
-      // Add a class to this div: 'well'
-      // newDiv.addClass("scroll");***********************
-      // Add an id to the well to mark which well it is
+      newDiv.addClass("scroll");
       newDiv.attr("id", "event-" + i);
-      // Append the well to the well section
       $(".showEvents").append(newDiv);
 
       var formattedDate = moment(data[i].date).format("MM-DD-YYYY");
 
-      // Now  we add our book data to the well we just placed on the page
-      $("<br><h3>Events</h3>");
-      // $("#event-" + i).append("<p>Event Number:" + (i + 1) + "</p>");
+      $(".showEvents").append("<br><h3>Events</h3><br>" + newDiv);
       $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
       $("#event-" + i).append("<p>Date: " + formattedDate + "</p>");
       $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
@@ -75,21 +69,11 @@ var searchEvents = function (event) {
     console.log(data)
     console.log(captureDate.val());
     
-      // Make a get request to our api route that will return every book
-        // For each book that our server sends us back
         for (var i = 0; i < data.length; i++) {
-          // Create a parent div to hold book data
           var newDiv = $("<div>");
        
           newDiv.attr("id", "event-" + i);
-          // Append the well to the well section
-          $(".showEvents").append(newDiv);
-          // Now  we add our book data to the well we just placed on the page
-          $("<h3>Events</h3>");
-        
-         
-            // console.log("Event Date: " + formattedDate);
-          // appending stuff
+          $(".showEvents").append("<br><h3>Events</h3><br>" + newDiv);
           $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
           $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
           $("#event-" + i).append("<p>Type: " + data[i].type + "</p>");
@@ -99,8 +83,7 @@ var searchEvents = function (event) {
         } 
   });
 };
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+
 var handleFormSubmit = function (event) {
   event.preventDefault();
 
@@ -127,7 +110,7 @@ var handleFormSubmit = function (event) {
     alert("You must fill out every field!");
   } else {
     API.saveEvent(eventListing).then(function () {
-      // refreshEvent();
+
       alert("Event created successfully!");
 
       return;
@@ -143,11 +126,9 @@ var handleFormSubmit = function (event) {
   eventCost.val("");
 };
 
-
-// Add event listeners to the submit and delete buttons
 submitVendor.on("click", handleFormSubmit);
 searchBtn.on("click", searchEvents);
 showAll.on("click", showEvents);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
 
 
