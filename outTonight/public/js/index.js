@@ -46,7 +46,8 @@ var showEvents = function (event) {
 
       var formattedDate = moment(data[i].date).format("MM-DD-YYYY");
 
-      $(".showEvents").append("<br><h3>Events</h3><br>" + newDiv);
+      $(".showEvents").append("<br><h3>Events</h3><br>");
+      $(".showEvents").append(newDiv);
       $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
       $("#event-" + i).append("<p>Date: " + formattedDate + "</p>");
       $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
@@ -73,7 +74,8 @@ var searchEvents = function (event) {
           var newDiv = $("<div>");
        
           newDiv.attr("id", "event-" + i);
-          $(".showEvents").append("<br><h3>Events</h3><br>" + newDiv);
+          $(".showEvents").append("<br><h3>Events</h3><br>");
+          $(".showEvents").append(newDiv);
           $("#event-" + i).append("<p>Event Name: " + data[i].name + "</p>");
           $("#event-" + i).append("<p>Time: " + data[i].time + "</p>");
           $("#event-" + i).append("<p>Type: " + data[i].type + "</p>");
