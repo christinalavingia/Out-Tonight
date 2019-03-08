@@ -14,7 +14,7 @@ INSERT INTO `events` (name, type, date, time, location, description, cost, creat
     VALUES ("OC Wine Fest 2019", "Festival", "2019-03-09", "1200", "San Juan Capistrano", "OC Wine Fest offers wine tasting, wine seminars, art vendors, and gourmet food at A Stone’s Throw Winery.", "175", now(), now());
             
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
-    VALUES ("Festival of Colors", "Festival", "2019-03-09", "1100", "South El Monte Whittier Narrows Park", "Holi: Festival of Colors sells brightly colored cornstarch for you to throw at each other and promises interactive dance, live mantra bands, DJs, yoga teachers, cuisine, free hugs, and lotsa love.", "0", now(), now());
+    VALUES ("Festival of Colors", "Festival", "2019-03-11", "1100", "South El Monte Whittier Narrows Park", "Holi: Festival of Colors sells brightly colored cornstarch for you to throw at each other and promises interactive dance, live mantra bands, DJs, yoga teachers, cuisine, free hugs, and lotsa love.", "0", now(), now());
 
 INSERT INTO `events` (name, type, date, time, location, description, cost, createdAt, updatedAt)
     VALUES ("Kite Festival", "Festival", "2019-03-10", "1100", "Redondo Beach", "All-ages Festival of the Kite features a gigantic 25-foot kite, a dance performance, live classic rock, and prizes for the best handmade kite, best ground display, highest-flying kite, youngest flyer, and youngest at heart at Redondo Beach Pier.", "0", now(), now());
